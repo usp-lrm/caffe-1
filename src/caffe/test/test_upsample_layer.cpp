@@ -203,7 +203,7 @@ TYPED_TEST(UpsampleLayerTest, TestForwardFromPool) {
   PoolingParameter* pooling_param = layer_param.mutable_pooling_param();
   pooling_param->set_kernel_h(kernel_h);
   pooling_param->set_kernel_w(kernel_w);
-//  pooling_param->set_stride(2);
+  pooling_param->add_stride(2);
 //   pooling_param->set_pad(1);
   pooling_param->set_pool(PoolingParameter_PoolMethod_MAX);
   PoolingLayer<Dtype> pooling_layer(layer_param);
@@ -259,7 +259,7 @@ TYPED_TEST(UpsampleLayerTest, TestForwardFromPoolOddShape) {
   PoolingParameter* pooling_param = layer_param.mutable_pooling_param();
   pooling_param->set_kernel_h(kernel_h);
   pooling_param->set_kernel_w(kernel_w);
-//  pooling_param->set_stride(2);
+  pooling_param->add_stride(2);
   pooling_param->set_pool(PoolingParameter_PoolMethod_MAX);
   PoolingLayer<Dtype> pooling_layer(layer_param);
   pooling_layer.SetUp(pool_bottom_vec, this->blob_bottom_vec_);
